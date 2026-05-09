@@ -1,0 +1,270 @@
+@font-face {
+    font-family: babu;
+    src: url(./NeueMachina-Regular.woff2);
+}
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: babu;
+}
+html,body{
+    min-height:100%;
+    width:100%;
+    overflow: hidden;
+}
+.page{
+    display: flex;
+    min-height:100vh;
+    width:100%;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    background: linear-gradient(180deg, #f5f5f5 0%, #ededed 100%);
+}
+.poster{
+    position: relative;
+    width: min(1440px, 100vw);
+    height: min(660px, 100vh);
+    display: flex;
+    overflow: hidden;
+    border-radius: 18px;
+    background: #f7d548;
+    box-shadow: 0 28px 70px rgba(0, 0, 0, 0.14);
+}
+.poster__left,
+.poster__right{
+    position: relative;
+    height: 100%;
+}
+
+.poster__left{
+    width: 58%;
+    padding: 34px 44px 38px 56px;
+    background: linear-gradient(180deg, #ffcd1c 0%, #ffd72f 100%);
+}
+.poster__right{
+    width: 42%;
+    background: linear-gradient(180deg, #f8e7b2 0%, #f5dea0 100%);
+}
+
+.logo{
+    position: absolute;
+    top: 26px;
+    left: 32px;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: #1457b8;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.copy{
+    position: relative;
+    z-index: 2;
+    max-width: 440px;
+    padding-top: 122px;
+}
+
+.eyebrow{
+    font-size: 14px;
+    letter-spacing: 0.48em;
+    color: #101010;
+    margin-bottom: 22px;
+}
+
+.copy h1{
+    font-size: clamp(3.5rem, 7vw, 5.8rem);
+    line-height: 0.92;
+    color: #111111;
+    margin-bottom: 22px;
+}
+
+.description{
+    max-width: 365px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: rgba(17, 17, 17, 0.82);
+}
+
+.pager{
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 28px;
+    font-size: 15px;
+    color: #111111;
+    font-weight: 700;
+}
+
+.pager__line{
+    width: 28px;
+    height: 2px;
+    background: #111111;
+}
+
+.pokeball{
+    position: absolute;
+    left: 64px;
+    bottom: 14px;
+    width: 190px;
+    height: 190px;
+    border-radius: 50%;
+    opacity: 0.17;
+    border: 16px solid #e1b400;
+}
+
+.pokeball::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: 16px;
+    background: #e1b400;
+    transform: translateY(-50%);
+}
+
+.pokeball::after{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: transparent;
+    border: 16px solid #e1b400;
+    transform: translate(-50%, -50%);
+}
+
+.menu{
+    position: absolute;
+    top: 34px;
+    right: 34px;
+    display: grid;
+    gap: 8px;
+    width: 28px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: default;
+}
+
+.menu span{
+    display: block;
+    width: 28px;
+    height: 3px;
+    border-radius: 999px;
+    background: #111111;
+}
+
+.pikachu{
+    position: absolute;
+    right: 350px;
+    bottom: 110px;
+    width: min(72%, 420px);
+    height: auto;
+    transform: rotate(-8deg);
+    transform-origin: center;
+    filter: drop-shadow(0 24px 28px rgba(0, 0, 0, 0.12));
+}
+
+.dots{
+    position: absolute;
+    right: 28px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: grid;
+    gap: 12px;
+}
+
+.dot{
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: rgba(255, 183, 0, 0.9);
+}
+
+.dot--active{
+    background: #111111;
+}
+
+@media (max-width: 980px){
+    .page{
+        padding: 0;
+    }
+
+    .poster{
+        height: auto;
+        min-height: 0;
+        flex-direction: column;
+    }
+
+    .poster__left,
+    .poster__right{
+        width: 100%;
+    }
+
+    .poster__left{
+        min-height: 540px;
+    }
+
+    .poster__right{
+        min-height: 360px;
+    }
+
+    .copy{
+        padding-top: 110px;
+    }
+
+    .pikachu{
+        right: 24px;
+        bottom: 20px;
+        width: min(72%, 340px);
+    }
+}
+
+@media (max-width: 640px){
+    .poster__left{
+        padding: 28px 22px 26px 22px;
+        min-height: 500px;
+    }
+
+    .poster__right{
+        min-height: 320px;
+    }
+
+    .logo,
+    .menu{
+        top: 18px;
+    }
+
+    .logo{
+        left: 20px;
+    }
+
+    .menu{
+        right: 20px;
+    }
+
+    .copy{
+        padding-top: 120px;
+    }
+
+    .description{
+        max-width: 100%;
+    }
+
+    .pokeball{
+        left: 18px;
+        width: 140px;
+        height: 140px;
+    }
+
+    .pikachu{
+        width: min(82%, 280px);
+        right: 12px;
+        bottom: 18px;
+    }
+}
