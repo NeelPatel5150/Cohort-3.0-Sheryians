@@ -1,0 +1,160 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Helvetica Neue', sans-serif;
+  color:white;
+  font-size: 20px;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+.parent{
+  height: 100%;
+  width: 100%;
+  
+}
+
+.nav{
+  height:60px;
+  width:100%;
+  background-color: red;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding:10px;
+}
+
+.part1{
+  height:100%;
+  width:15%;
+  background-color: blue;
+}
+.part2{
+  height:100%;
+  width:40%;
+  background-color: green;
+}
+.part3{
+  height:100%;
+  width:15%;
+  background-color: royalblue;
+}
+
+.center{
+  height:calc(100% - 60px - 80px);
+  width:100%;
+  background-color: lightgreen;
+  display:flex;
+}
+.left{
+  height:100%;
+  width:40%;
+  background-color: yellow;
+  display:flex;
+  flex-direction:column;
+  padding:10px;
+  gap:10px;
+}
+.right{
+  height:100%;
+  width:60%;
+  background-color: lightgray;
+  display:flex;
+  flex-direction:row;
+  padding:10px;
+  gap:10px;
+  
+}
+.card1{
+  height:50%;
+  width:50%;
+  background-color: lightcoral;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+.card2{
+  height:50%;
+  width: 50%;
+  background-color: lightblue;
+   border: 2px solid black;
+   border-radius: 10px;
+
+}
+.card3{
+  height:50%;
+  width:50%;
+  background-color: lightcoral;
+    border: 2px solid black;
+    border-radius: 10px;
+
+}
+.card4{
+  height:50%;
+  width: 50%;
+  background-color: lightblue;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+.card5{
+  height:50%;
+  width:50%;
+  background-color: lightcoral;
+   border: 2px solid black;
+   border-radius: 10px;
+}
+.card6{
+  height:50%;
+  width:50%;
+  background-color: lightblue;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+.card7{
+  height:50%;
+  width:50%;
+  background-color: lightcoral;
+   border: 2px solid black;
+   border-radius: 10px;
+}
+.card8{
+  height:50%;
+  width:50%;
+  background-color: lightblue;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+.left-top{
+  height:50%;
+  width:100%;
+  background-color: lightblue;
+  
+}
+.left-bottom{
+  height:20%;
+  width:100%;
+  background-color: lightcoral;
+  padding:10px;
+}
+.footer{
+  height:80px;
+  width:100%;
+  background-color: black;
+  display:flex;
+  padding:5px;
+  gap:10px;
+}
+
+.footer-left{
+height:100%;
+width:40%;
+background-color: lightgreen;
+}
+.footer-right{
+  height:100%;
+  width:60%;
+  background-color: lightblue;
+}
