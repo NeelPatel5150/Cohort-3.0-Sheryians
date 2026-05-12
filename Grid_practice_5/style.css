@@ -1,0 +1,102 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+main{
+  height: 100%;
+  width: 100%;
+  display: grid;
+  gap: 10px;
+  
+  grid-template-columns: 22% 20% 7% 27% 22%;
+  grid-template-rows: 29% 24% 7% 18% 20%;
+  grid-template-areas:
+       "top-left top-center1 top-center1 top-center2 right-top"
+        "top-left center center center right-top"
+        "left-bottom center center center right-top"
+        "left-bottom center center center right-bottom"
+        "left-bottom bottom-center1 bottom-center2 bottom-center2 right-bottom";
+  
+}
+
+.top-left{
+  background-color: red;
+  grid-area: top-left;
+  border: 2px solid black;
+  border-radius: 20px;
+ 
+}
+.left-bottom{
+  background-color: royalblue;
+  grid-area: left-bottom;
+  border: 2px solid black;
+  border-radius: 20px;
+  
+}
+.top-center1{
+  background-color: rgb(83, 248, 7);
+  grid-area: top-center1;
+  border: 2px solid black;
+  border-radius: 20px;
+  
+}
+.top-center2{
+  background-color: pink;
+  grid-area: top-center2;
+  border: 2px solid black;
+  border-radius: 20px;
+}
+.center{
+  background-color: #92a8d1;
+  grid-area: center;
+  border: 2px solid black;
+  border-radius:20px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  
+}
+.bottom-center1{
+  background-color: #955251;
+  grid-area: bottom-center1;
+  border: 2px solid black;
+  border-radius:20px;
+  
+}
+.bottom-center2{
+  background-color: #b565a7;
+  grid-area: bottom-center2;
+  border: 2px solid black;
+  border-radius:20px;
+ 
+}
+.right-top{
+  background-color: #009b77;
+  grid-area: right-top;
+  border: 2px solid black;
+  border-radius:20px;
+  
+}
+.right-bottom{
+  background-color: #dd4124;
+  grid-area: right-bottom;
+  border: 2px solid black;
+  border-radius:20px;
+  
+}
+.circle{
+  width: 50%;
+  height: 100%;
+  background:radial-gradient(pink,rgb(232, 107, 107));
+  border-radius: 50%;
+  border: 2px solid black;
+  margin: auto;
+}

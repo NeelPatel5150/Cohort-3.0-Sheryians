@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+main{
+    height: 100%;
+    width: 100%;
+    display: grid;
+    gap:10px;
+    grid-template-columns: 20% 80%;
+    grid-template-rows: 100px calc(100% - 200px) 100px;
+    grid-template-areas:
+    "header header header"
+    "aside section section"
+    "footer footer footer"
+}
+header{
+    background-color: #f8b400;
+   grid-area: header;
+}
+aside{
+    background-color: #6a2c70;
+    grid-area: aside;
+}
+section{
+    background-color: #b83b5e;
+    grid-area: section;
+}
+footer{
+    background-color: #355c7d;
+    grid-area: footer;
+}
