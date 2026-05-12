@@ -1,0 +1,87 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+main{
+    height:100%;
+    width:100%;
+    display: grid;
+    background-color: black;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10px;
+    padding: 50px;
+    grid-template-areas:
+        "topleft topleft topcenter topright"
+        "leftcenter center rightcenter rightcenter"
+        "bottomleft bottomcenter bottomright1 bottomright2";
+
+}
+.topleft{
+    background-color: blue;
+    grid-area: topleft;
+    border-radius: 10px;
+    border: 4px solid white;
+}
+.leftcenter{
+    background-color: green;
+    grid-area: leftcenter;
+    border-radius: 10px;
+    border: 4px solid white;
+}
+.bottomleft{
+    background-color: yellow;
+    grid-area: bottomleft;
+    border-radius: 10px;
+    border: 4px solid white;
+}
+.topcenter{
+    background-color: green;
+    grid-area: topcenter;
+    border-radius: 10px;
+    border: 4px solid white;
+}
+.center{
+    background-color: orange;
+    grid-area: center;
+    border-radius: 10px;
+    border: 4px solid white;
+}
+.bottomcenter{
+    background-color: purple;
+    grid-area: bottomcenter;
+    border-radius: 10px;
+    border: 4px solid white;
+}
+.topright{
+    background-color: pink;
+    grid-area: topright;
+    border-radius: 10px;
+    border: 4px solid white;
+}
+.rightcenter{
+    background-color: cyan;
+    grid-area: rightcenter;
+    border-radius: 10px;
+    border: 4px solid white;
+}
+.bottomright1{
+    background-color: brown;
+    grid-area: bottomright1;
+    border-radius: 10px;
+    border: 4px solid white;
+}
+.bottomright2{
+    background-color: black;
+    grid-area: bottomright2;
+    border-radius: 10px;
+    border: 4px solid white;
+}

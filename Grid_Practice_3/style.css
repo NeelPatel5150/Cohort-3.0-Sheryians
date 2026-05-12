@@ -1,0 +1,111 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 100px;
+  font-weight: bold;
+  font-style: italic;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+main{
+    height:100%;
+    width:100%;
+    background-color: black;
+    display: grid;
+    gap:10px;
+    padding:10px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas:
+    "topleft topcenter1 topcenter2 topright"
+    "leftcenter center center topright"
+    "leftbottom leftbottom bottomcenter bottomright"
+}
+
+.topleft{
+    background-color: red;
+    grid-area: topleft;
+        border: 2px solid white;
+        border-radius: 10px;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+}
+.leftcenter{
+    background-color: blue;
+    grid-area: leftcenter;
+    border: 2px solid white;
+    border-radius: 10px;
+    justify-content: center;
+        align-items: center;
+        display: flex;
+}
+.leftbottom{
+    background-color: green;
+    grid-area: leftbottom;
+    border: 2px solid white;
+    border-radius: 10px;
+    justify-content: center;
+        align-items: center;
+        display: flex;
+}
+.topcenter1{
+    background-color: yellow;
+    grid-area: topcenter1;
+    border: 2px solid white;
+    border-radius: 10px;
+    justify-content: center;
+        align-items: center;
+        display: flex;
+}
+.topcenter2{
+    background-color: cyan;
+    grid-area: topcenter2;
+    border: 2px solid white;
+    border-radius: 10px;
+    justify-content: center;
+        align-items: center;
+        display: flex;
+}
+.center{
+    background-color: magenta;
+    grid-area: center;
+    border: 2px solid white;
+    border-radius: 10px;
+    justify-content: center;
+        align-items: center;
+        display: flex;
+}
+.bottomcenter{
+    background-color: orange;
+    grid-area: bottomcenter;
+    border: 2px solid white;
+    border-radius: 10px;
+    justify-content: center;
+        align-items: center;
+        display: flex;
+}
+.topright{
+    background-color: purple;
+    grid-area: topright;
+    border: 2px solid white;
+    border-radius: 10px;
+    justify-content: center;
+        align-items: center;
+        display: flex;
+}
+.bottomright{
+    background-color: brown;
+    grid-area: bottomright;
+    border: 2px solid white;
+    border-radius: 10px;
+    justify-content: center;
+        align-items: center;
+        display: flex;
+}
