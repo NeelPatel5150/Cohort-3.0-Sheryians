@@ -18,3 +18,17 @@ html, body {
   gap: 20px;
   background-color: radial-gradient(circle at top, #b41a1a 0%, #b02222 100%);
 }
+
+#neel::after{
+  content:" Patel";
+  color: #b41a1a;
+  font-family: cursive;
+  
+  
+}
+
+#neel::before{
+  content:"Sheryians Coding School ";
+  color: lime;
+  font-family: cursive;
+}
