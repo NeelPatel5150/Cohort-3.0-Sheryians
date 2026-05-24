@@ -71,13 +71,250 @@ nav .nav-part-2{
     background-image: url(https://www.twoleavestea.com/cdn/shop/files/AlpineBerry.webp?v=1774284236&width=1280);
     background-size: cover;
     background-position: center;
-    background-position: center;
     display: flex;
     justify-content: end;
     flex-direction: column;
     padding: 2vw;
     align-items: start;
 }
+
+/* ── Section 2 – Best Sellers ── */
+#section-2 {
+  width: 100%;
+  padding: 8vh 0 8vh;
+  background: #FBF9EB;
+}
+
+/* Centered heading */
+.s2-heading {
+  text-align: center;
+  padding: 0 8vw 5vh;
+}
+.s2-heading h2 {
+  font-family: Reckless;
+  font-size: clamp(2rem, 4vw, 4.5rem);
+  font-weight: 300;
+  color: #201C1A;
+  line-height: 1.15;
+}
+.s2-heading h2 em {
+  font-style: italic;
+}
+
+/* Carousel area */
+.s2-carousel-area {
+  position: relative;
+  padding: 0 5vw;
+}
+
+/* BEST SELLERS badge – outlined style */
+.bs-badge {
+  display: block;
+  width: fit-content;
+  margin: 0 auto 20px;
+  border: 1.5px solid #201C1A;
+  color: #201C1A;
+  background: transparent;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  padding: 7px 20px;
+  border-radius: 4px;
+}
+
+/* Horizontal scroll row */
+.cards-scroll {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  padding-bottom: 6px;
+}
+.cards-scroll::-webkit-scrollbar { display: none; }
+
+/* Individual card wrapper (card + info below) */
+.card-wrapper {
+  flex: 0 0 auto;
+  width: 170px;
+}
+
+/* Colored product card */
+.pcard {
+  background: var(--card-bg, #C1EE91);
+  border-radius: 14px;
+  padding: 14px;
+  height: 215px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.pcard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 32px rgba(0,0,0,0.13);
+}
+
+.pcard-tag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(255,255,255,0.92);
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: #201C1A;
+  text-transform: uppercase;
+}
+
+.pcard-rating {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 0.68rem;
+  color: #201C1A;
+}
+
+.pcard-img {
+  width: 120px;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pcard-img img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.pcard-add {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-weight: 700;
+  font-size: 0.75rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: background 0.2s, color 0.2s;
+}
+.pcard-add:hover { background: #201C1A; color: #fff; }
+
+/* Info below each card */
+.card-info h3 {
+  font-family: Reckless;
+  font-size: 0.92rem;
+  font-weight: 400;
+  color: #201C1A;
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+.card-info .ci-price {
+  font-size: 0.8rem;
+  color: #6b6b6b;
+  margin-bottom: 5px;
+}
+.card-info .ci-desc {
+  font-size: 0.76rem;
+  color: #666;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Floating right-scroll button */
+.scroll-right-btn {
+  position: absolute;
+  right: 1vw;
+  top: 40%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1.5px solid #201C1A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #201C1A;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+  transition: background 0.2s, color 0.2s;
+  z-index: 10;
+}
+.scroll-right-btn:hover { background: #201C1A; color: #fff; }
+
+@media (max-width: 768px) {
+  /* Navbar Responsiveness */
+  nav {
+    padding: 12px 18px;
+    font-size: 0.76rem;
+  }
+  nav .nav-part-1 {
+    width: auto;
+    gap: 15px;
+  }
+  nav .nav-part-1 h3:nth-child(n+3) {
+    display: none; /* Simplify links */
+  }
+  nav .nav-part-2 {
+    width: 110px;
+    height: auto;
+    display: flex;
+    align-items: center;
+  }
+  nav .nav-part-3 {
+    width: auto;
+    gap: 15px;
+  }
+  nav .nav-part-3 h3 {
+    display: none; /* Hide heavy links to keep clean */
+  }
+  nav .nav-part-3 svg {
+    width: 20px;
+    height: auto;
+  }
+
+  /* Hero Section Responsiveness */
+  #section-1 {
+    height: 90vh;
+    padding: 30px 20px;
+    justify-content: flex-end;
+  }
+  #section-1 h1 {
+    font-size: clamp(2rem, 7.5vw, 3rem) !important;
+    max-width: 85vw !important;
+  }
+  #section-1 p {
+    font-size: 1.05rem !important;
+    max-width: 80vw !important;
+    margin-top: 15px !important;
+  }
+  #section-1 button {
+    margin-top: 25px !important;
+    padding: 10px 40px !important;
+    font-size: 1.1rem !important;
+  }
+
+  .s2-heading h2 { font-size: 2rem; }
+  .card-wrapper { width: 145px; }
+  .pcard { height: 185px; }
+}
+
 #section-1 h1{
     font-size: 4rem;
     max-width:25vw;
@@ -107,4 +344,1340 @@ nav .nav-part-2{
     opacity: 0.8;
     color: black;
     transition: all 0.5s ease-out;
+}
+
+.s2-footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.explore-btn {
+  width: 200px;
+  height: 50px;
+  padding: 0.5rem 1.5rem;
+  border-radius: 50px;
+  border: 1.5px solid #201C1A;
+  cursor: pointer;
+  background-color: #2A2857;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.explore-btn:hover {
+  background-color: transparent;
+  color: #2A2857;
+  border-color: #2A2857;
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 8px 20px rgba(42, 40, 87, 0.15);
+}
+
+/* ── Section 3 – Discover & Search ── */
+#section-3 {
+  width: 100%;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10vh 8vw;
+  background-color: #FBF9EB;
+  text-align: center;
+}
+
+/* Badge styling */
+.s3-badge {
+  background-color: #F0653B; /* High-contrast warm orange */
+  color: #201C1A;
+  border: 1.5px solid #201C1A;
+  padding: 6px 14px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  border-radius: 4px;
+  margin-bottom: 24px;
+  width: fit-content;
+}
+
+/* Serif Headings */
+.s3-heading, .s3-subheading {
+  font-family: Reckless, Georgia, serif;
+  color: #201C1A;
+  font-weight: 300;
+  line-height: 1.25;
+}
+
+.s3-heading {
+  font-size: clamp(2.2rem, 4.5vw, 4.8rem);
+  margin-bottom: 8px;
+}
+
+.s3-heading em {
+  font-style: italic;
+}
+
+.s3-subheading {
+  font-size: clamp(2.2rem, 4.5vw, 4.8rem);
+  margin-bottom: 35px;
+}
+
+/* Search Wrapper & Input styling */
+.s3-search-wrapper {
+  width: 100%;
+  max-width: 440px;
+  margin-bottom: 45px;
+}
+
+.s3-search-input {
+  width: 100%;
+  padding: 14px 24px;
+  border: 1.5px solid #201C1A;
+  border-radius: 12px;
+  background-color: transparent;
+  font-family: Reckless, Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 300;
+  color: #201C1A;
+  outline: none;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.s3-search-input:focus {
+  background-color: #fff;
+  box-shadow: 0 8px 24px rgba(32, 28, 26, 0.06);
+}
+
+.s3-search-input::placeholder {
+  color: #a6a195;
+  opacity: 0.8;
+  font-family: Reckless, Georgia, serif;
+  font-style: italic;
+  font-weight: 300;
+  transition: opacity 0.25s ease;
+}
+
+.s3-search-input:focus::placeholder {
+  opacity: 0.3;
+}
+
+/* OR EXPLORE BY VIBE label */
+.s3-vibe-header {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: #8C8476;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+}
+
+/* Pill Cloud Layout */
+.s3-vibe-pills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  max-width: 900px;
+}
+
+/* Pastel Blue Pill */
+.vibe-pill {
+  background-color: #E5F2F8; /* Super smooth light pastel blue */
+  color: #201C1A;
+  border: 1.5px solid #201C1A;
+  padding: 9px 18px;
+  border-radius: 6px;
+  font-family: Reckless, Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.vibe-pill:hover {
+  background-color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(32, 28, 26, 0.08);
+}
+
+/* ── Section 4 – Reviews ── */
+#section-4 {
+  width: 100%;
+  padding: 10vh 5vw;
+  background-color: #FBF9EB;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Badge */
+.s4-badge {
+  background-color: #84B05C; /* Clean organic soft green */
+  color: #201C1A;
+  border: 1.5px solid #201C1A;
+  padding: 6px 14px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  border-radius: 4px;
+  margin-bottom: 24px;
+  width: fit-content;
+}
+
+/* Headings */
+.s4-heading, .s4-subheading {
+  font-family: Reckless, Georgia, serif;
+  color: #201C1A;
+  font-weight: 300;
+  text-align: center;
+  line-height: 1.25;
+}
+
+.s4-heading {
+  font-size: clamp(2.2rem, 4.5vw, 4.2rem);
+  margin-bottom: 8px;
+}
+
+.s4-heading em {
+  font-style: italic;
+}
+
+.s4-subheading {
+  font-size: clamp(2.2rem, 4.5vw, 4.2rem);
+  margin-bottom: 48px;
+}
+
+/* Reviews Row Layout */
+.s4-reviews-row {
+  display: flex;
+  gap: 14px;
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding-bottom: 15px;
+}
+
+.s4-reviews-row::-webkit-scrollbar {
+  display: none;
+}
+
+/* Review Card */
+.review-card {
+  flex: 1 1 calc(20% - 12px);
+  min-width: 230px;
+  background-color: var(--card-bg);
+  border: 1.5px solid #201C1A;
+  border-radius: 14px;
+  padding: 24px 20px 84px 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 380px;
+  transition: transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.25s ease;
+}
+
+.review-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(32, 28, 26, 0.12);
+}
+
+/* Quotes & Authors */
+.rc-quote {
+  font-family: Reckless, Georgia, serif;
+  font-size: 1.18rem;
+  font-weight: 300;
+  color: #201C1A;
+  line-height: 1.45;
+  margin-bottom: 16px;
+}
+
+.rc-author {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: rgba(32, 28, 26, 0.65);
+  margin-top: auto;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* Inside Bottom Product Bar */
+.rc-product-bar {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  right: 14px;
+  background-color: var(--bar-bg);
+  border: 1.5px solid #201C1A;
+  border-radius: 10px;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.rc-prod-img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.rc-prod-name {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: #201C1A;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1.3;
+  flex: 1;
+}
+
+.rc-shop-btn {
+  background-color: #fff;
+  color: #201C1A;
+  border: 1.5px solid #201C1A;
+  border-radius: 50px;
+  padding: 5px 12px;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.rc-shop-btn:hover {
+  background-color: #201C1A;
+  color: #fff;
+}
+
+
+/* ── Section 5 – Cafe & Wholesale Partners ── */
+#section-5 {
+  width: 100%;
+  min-height: 75vh;
+  display: flex;
+  background-color: #2A2857; /* Deep Violet Navy */
+}
+
+/* Image half */
+.s5-image-area {
+  width: 50%;
+  overflow: hidden;
+  position: relative;
+}
+
+.s5-image-area img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Content half */
+.s5-content-area {
+  width: 50%;
+  padding: 8% 8%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  color: #fff;
+}
+
+.s5-content-area h2 {
+  font-family: Reckless, Georgia, serif;
+  font-size: clamp(2.2rem, 4vw, 3.8rem);
+  font-weight: 300;
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+
+.s5-content-area p {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 1.1rem;
+  font-weight: 300;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 35px;
+  max-width: 440px;
+}
+
+.s5-btn {
+  background-color: #fff;
+  color: #2A2857;
+  border: 1.5px solid #fff;
+  padding: 13px 36px;
+  border-radius: 50px;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 0.92rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.s5-btn:hover {
+  background-color: transparent;
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.12);
+}
+
+@media (max-width: 900px) {
+  #section-5 {
+    flex-direction: column-reverse;
+  }
+  .s5-image-area, .s5-content-area {
+    width: 100%;
+    min-height: 50vh;
+  }
+  .s5-content-area {
+    padding: 12% 8%;
+  }
+}
+
+/* ── Section 6 – Latte Barista Blends Slider ── */
+#section-6 {
+  width: 100%;
+  background-color: #FBF9EB;
+  padding-bottom: 10vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Header Area */
+.s6-header-area {
+  background-color: #A97950; /* Rich earthy latte brown */
+  color: #fff;
+  padding: 8vh 8vw 12vh 8vw;
+  text-align: center;
+  position: relative;
+}
+
+.s6-badge {
+  display: inline-block;
+  border: 1.5px solid #fff;
+  color: #fff;
+  background-color: transparent;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  padding: 6px 16px;
+  border-radius: 4px;
+  margin-bottom: 24px;
+}
+
+.s6-heading {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: clamp(2rem, 5vw, 4.4rem);
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+  margin-bottom: 12px;
+}
+
+.s6-subtitle {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: #EAD2BF;
+}
+
+/* Circular spinning sticker badge on top right */
+.s6-sticker {
+  position: absolute;
+  top: 15%;
+  right: 6%;
+  width: 110px;
+  height: 110px;
+  background-color: #D6BAD6; /* Pastel pinkish purple */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid #201C1A;
+  box-shadow: 0 8px 24px rgba(32, 28, 26, 0.1);
+  transform: rotate(-10deg);
+  transition: transform 0.3s ease;
+  z-index: 5;
+}
+
+.s6-sticker:hover {
+  transform: scale(1.06) rotate(15deg);
+}
+
+.circular-text {
+  position: absolute;
+  width: 90%;
+  height: 90%;
+  animation: rotateSticker 15s linear infinite;
+}
+
+.circular-text text {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 8.5px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  fill: #201C1A;
+}
+
+.sticker-icon {
+  position: relative;
+  color: #201C1A;
+  z-index: 2;
+  transform: translateY(1px);
+}
+
+@keyframes rotateSticker {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Slider Layout Container */
+.s6-slider-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 92%;
+  max-width: 1150px;
+  margin: -7vh auto 0 auto; /* Overlaps brown header precisely */
+  position: relative;
+  z-index: 10;
+}
+
+/* Floating Navigation Arrows (Inside Slide but Absolute Positioned) */
+.s6-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 1.5px solid #201C1A;
+  color: #201C1A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(32, 28, 26, 0.08);
+  transition: all 0.25s ease;
+  z-index: 20;
+  text-decoration: none;
+}
+
+.prev-arrow {
+  left: 20px;
+}
+
+.next-arrow {
+  right: 20px;
+}
+
+.s6-arrow:hover {
+  background-color: #201C1A;
+  color: #fff;
+  transform: translateY(-50%) scale(1.05);
+}
+
+/* Slider Track Wrapper with Pure CSS Scroll Snap */
+.s6-slider-track-wrapper {
+  width: 100%;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  border-radius: 20px;
+  border: 1.5px solid #201C1A;
+  box-shadow: 0 16px 40px rgba(32, 28, 26, 0.08);
+  scrollbar-width: none; /* Hide scrollbar Firefox */
+  -webkit-overflow-scrolling: touch;
+}
+
+.s6-slider-track-wrapper::-webkit-scrollbar {
+  display: none; /* Hide scrollbar Chrome/Safari/Edge */
+}
+
+.s6-slider-track {
+  display: flex;
+  width: 100%;
+}
+
+/* Individual Slide */
+.s6-slide {
+  flex: 0 0 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  min-height: 460px;
+  scroll-snap-align: start;
+  position: relative;
+  padding: 0 80px; /* Safe space for absolute arrows */
+}
+
+/* Pastel backgrounds for each slide ID */
+#s6-slide-1 {
+  background-color: #F8D5B1; /* Peach latte */
+}
+
+#s6-slide-2 {
+  background-color: #D4EEBE; /* Matcha green */
+}
+
+#s6-slide-3 {
+  background-color: #FFF3CD; /* Ochre/Turmeric yellow */
+}
+
+#s6-slide-4 {
+  background-color: #EAD2BF; /* Warm latte brown */
+}
+
+#s6-slide-5 {
+  background-color: #CDE3B5; /* Ceremonial Matcha green */
+}
+
+.slide-image-side {
+  width: 50%;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slide-image-side img {
+  max-width: 100%;
+  max-height: 380px;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 24px rgba(32, 28, 26, 0.08));
+  transition: transform 0.5s ease;
+}
+
+.s6-slide:hover .slide-image-side img {
+  transform: scale(1.03) rotate(2deg);
+}
+
+.slide-content-side {
+  width: 50%;
+  padding: 40px 60px 40px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.slide-badge {
+  background-color: transparent;
+  color: #201C1A;
+  border: 1.5px solid #201C1A;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 5px 12px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.slide-title {
+  font-family: Reckless, Georgia, serif;
+  font-size: clamp(2rem, 3.2vw, 3rem);
+  font-weight: 300;
+  line-height: 1.2;
+  color: #201C1A;
+  margin-bottom: 16px;
+}
+
+.slide-desc {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 1.05rem;
+  font-weight: 300;
+  line-height: 1.55;
+  color: rgba(32, 28, 26, 0.85);
+  margin-bottom: 30px;
+  max-width: 420px;
+}
+
+.slide-btn {
+  background-color: #fff;
+  color: #201C1A;
+  border: 1.5px solid #201C1A;
+  padding: 12px 32px;
+  border-radius: 50px;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.slide-btn:hover {
+  background-color: #201C1A;
+  color: #fff;
+}
+
+/* Dots Navigation */
+.s6-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.s6-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #CFCBC2;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.s6-dot:hover {
+  background-color: #201C1A;
+  transform: scale(1.2);
+}
+
+@media (max-width: 768px) {
+  .s6-header-area {
+    padding: 6vh 6vw 10vh 6vw;
+  }
+  
+  .s6-sticker {
+    display: none; /* Hide spinning sticker on mobile */
+  }
+
+  .s6-slider-container {
+    width: 95%;
+  }
+
+  .s6-arrow {
+    width: 34px;
+    height: 34px;
+  }
+
+  .prev-arrow {
+    left: 8px;
+  }
+
+  .next-arrow {
+    right: 8px;
+  }
+
+  .s6-slide {
+    flex-direction: column;
+    min-height: auto;
+    padding: 40px 20px;
+  }
+
+  .slide-image-side, .slide-content-side {
+    width: 100%;
+    padding: 20px 10px;
+  }
+
+  .slide-content-side {
+    align-items: center;
+    text-align: center;
+  }
+
+  .slide-image-side img {
+    max-height: 200px;
+  }
+}
+
+/* ── Section 7 – The Journal ── */
+#section-7 {
+  width: 100%;
+  padding: 10vh 5vw;
+  background-color: #FBF9EB;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+/* Badge */
+.s7-badge {
+  background-color: #FCD167; /* High-contrast warm mustard yellow */
+  color: #201C1A;
+  border: 1.5px solid #201C1A;
+  padding: 6px 14px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  border-radius: 4px;
+  margin-bottom: 24px;
+  width: fit-content;
+}
+
+/* Headings */
+.s7-heading, .s7-subheading {
+  font-family: Reckless, Georgia, serif;
+  color: #201C1A;
+  font-weight: 300;
+  text-align: center;
+  line-height: 1.25;
+}
+
+.s7-heading {
+  font-size: clamp(2.2rem, 4.5vw, 4.2rem);
+  margin-bottom: 8px;
+}
+
+.s7-heading em {
+  font-style: italic;
+}
+
+.s7-subheading {
+  font-size: clamp(2.2rem, 4.5vw, 4.2rem);
+  margin-bottom: 48px;
+}
+
+/* Carousel Area */
+.s7-carousel-area {
+  position: relative;
+  width: 100%;
+}
+
+/* Horizontal Scroll Container */
+.s7-cards-scroll {
+  display: flex;
+  gap: 14px;
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding-bottom: 15px;
+  scroll-behavior: smooth;
+}
+
+.s7-cards-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* Individual Journal Card */
+.journal-card {
+  flex: 0 0 auto;
+  width: 230px;
+  height: 330px;
+  border: 1.5px solid #201C1A;
+  border-radius: 14px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s ease;
+}
+
+.journal-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 12px 32px rgba(32, 28, 26, 0.12);
+}
+
+/* Card Skins */
+.jc-dark {
+  background-color: #2A2857; /* Deep Navy Blue */
+}
+
+.jc-light {
+  background-color: #FAD9B2; /* Warm Peach */
+}
+
+.jc-light-green {
+  background-color: #83B860; /* Organic Green */
+}
+
+/* Card top badge */
+.jcard-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background-color: #fff;
+  color: #201C1A;
+  border: 1.5px solid #201C1A;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  z-index: 5;
+}
+
+/* Image Container */
+.jcard-image-box {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1.5px solid #201C1A;
+}
+
+.jcard-image-box img {
+  width: 90%;
+  height: 90%;
+  object-fit: contain;
+  transition: transform 0.5s ease;
+}
+
+.journal-card:hover .jcard-image-box img {
+  transform: scale(1.05) rotate(1deg);
+}
+
+/* Illustration Container */
+.jcard-illustration-box {
+  width: 100%;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1.5px solid #201C1A;
+}
+
+.jcard-svg-circle {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 1.5px solid #201C1A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.5s ease;
+}
+
+.color-teal .jcard-svg-circle {
+  background-color: #C5DFE8; /* Soft blue/teal */
+}
+
+.color-green .jcard-svg-circle {
+  background-color: #CDE3B5; /* Soft pastel green */
+}
+
+.jcard-svg {
+  width: 75%;
+  height: 75%;
+}
+
+.journal-card:hover .jcard-svg-circle {
+  transform: scale(1.05) rotate(-5deg);
+}
+
+/* Card bottom bar */
+.jcard-bottom {
+  height: 80px;
+  width: 100%;
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: #B5D5E5; /* Nice contrast baby blue */
+  border-top: 1.5px solid #201C1A;
+}
+
+.jc-light .jcard-bottom {
+  background-color: #C8E5ED;
+}
+
+.jc-light-green .jcard-bottom {
+  background-color: #B9E3F0;
+}
+
+.jcard-bottom h4 {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: #201C1A;
+  line-height: 1.35;
+}
+
+/* Floating scroll right button */
+.s7-scroll-btn {
+  position: absolute;
+  right: 1.5vw;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 1.5px solid #201C1A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #201C1A;
+  box-shadow: 0 4px 14px rgba(32, 28, 26, 0.08);
+  transition: all 0.25s ease;
+  z-index: 10;
+}
+
+.s7-scroll-btn:hover {
+  background-color: #201C1A;
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .s7-scroll-btn {
+    display: none; /* Hide scrolling button on mobile */
+  }
+}
+
+/* ── Section 8 – Our Story ── */
+#section-8 {
+  width: 100%;
+  min-height: 80vh;
+  display: flex;
+  background-color: #E65D24; /* Vibrant brand orange */
+}
+
+/* Content Panel */
+.s8-content-area {
+  width: 40%;
+  padding: 6% 5%;
+  background-color: #E65D24;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #fff;
+  min-height: 70vh;
+}
+
+.s8-top-group h2 {
+  font-family: Reckless, Georgia, serif;
+  font-size: clamp(2.4rem, 4vw, 4rem);
+  font-weight: 300;
+  line-height: 1.15;
+  color: #fff;
+}
+
+.s8-bottom-group {
+  margin-top: 8vh;
+}
+
+.s8-bottom-group p {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 1.15rem;
+  font-weight: 400;
+  line-height: 1.55;
+  color: #fff;
+  margin-bottom: 30px;
+  max-width: 380px;
+}
+
+.s8-btn {
+  background-color: #fff;
+  color: #E65D24;
+  border: 1.5px solid #fff;
+  padding: 13px 40px;
+  border-radius: 50px;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.s8-btn:hover {
+  background-color: transparent;
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.12);
+}
+
+/* Image Panel */
+.s8-image-area {
+  width: 60%;
+  overflow: hidden;
+  position: relative;
+}
+
+.s8-image-area img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 900px) {
+  #section-8 {
+    flex-direction: column;
+  }
+  .s8-content-area, .s8-image-area {
+    width: 100%;
+  }
+  .s8-content-area {
+    padding: 10% 8%;
+    min-height: auto;
+  }
+  .s8-bottom-group {
+    margin-top: 5vh;
+  }
+  .s8-image-area {
+    height: 50vh;
+  }
+}
+
+/* ── FOOTER ── */
+#footer {
+  width: 100%;
+  background-color: #C5E2F0; /* Soft baby blue background */
+}
+
+/* 1. Steep With Us Newsletter Bar */
+.footer-newsletter-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5vh 6vw;
+  background-color: #C5E2F0;
+  gap: 30px;
+}
+
+.fn-badge {
+  display: inline-block;
+  background-color: transparent;
+  color: #201C1A;
+  border: 1.5px solid #201C1A;
+  padding: 5px 12px;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  border-radius: 4px;
+  margin-bottom: 12px;
+}
+
+.fn-text {
+  font-family: Reckless, Georgia, serif;
+  font-size: 1.25rem;
+  color: #201C1A;
+  font-weight: 300;
+  max-width: 420px;
+  line-height: 1.4;
+}
+
+.fn-form {
+  display: flex;
+  gap: 12px;
+}
+
+.fn-input {
+  width: 280px;
+  padding: 14px 20px;
+  border-radius: 50px;
+  border: 1.5px solid #201C1A;
+  background-color: #fff;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 0.92rem;
+  color: #201C1A;
+  outline: none;
+}
+
+.fn-input::placeholder {
+  color: rgba(32, 28, 26, 0.4);
+}
+
+.fn-submit-btn {
+  background-color: #2A2857; /* Deep Navy Blue */
+  color: #fff;
+  border: 1.5px solid #2A2857;
+  padding: 0 32px;
+  border-radius: 50px;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.fn-submit-btn:hover {
+  background-color: #fff;
+  color: #2A2857;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(42, 40, 87, 0.15);
+}
+
+.fn-right {
+  display: flex;
+  gap: 12px;
+}
+
+.social-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 1.5px solid #201C1A;
+  color: #201C1A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+
+.social-circle:hover {
+  background-color: #201C1A;
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+/* 2. Main Nested Links Container */
+.footer-links-container {
+  padding: 0 20px;
+  background-color: #C5E2F0;
+}
+
+.fl-grid {
+  background-color: #2A2857; /* Deep Violet Navy */
+  border-radius: 20px 20px 0 0;
+  padding: 8vh 6vw;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 40px;
+  border: 1.5px solid #201C1A;
+  border-bottom: none;
+}
+
+.fl-col h3 {
+  font-family: Reckless, Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 400;
+  color: #fff;
+  margin-bottom: 24px;
+}
+
+.fl-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.fl-col ul li {
+  margin-bottom: 14px;
+}
+
+.fl-col ul li a {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.fl-col ul li a:hover {
+  color: #FCD167; /* Warm mustard hover accent */
+  padding-left: 2px;
+}
+
+.fl-col-group {
+  margin-top: 48px;
+}
+
+/* 3. Bottom Landscape Banner */
+.footer-landscape-banner {
+  background-color: #C5E2F0;
+  position: relative;
+  overflow: hidden;
+  padding-top: 6vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-top: 1.5px solid #201C1A;
+}
+
+.flb-logo-container {
+  position: absolute;
+  top: 12%;
+  z-index: 5;
+  text-align: center;
+  pointer-events: none;
+}
+
+.flb-brand-logo {
+  font-family: Reckless, Georgia, serif;
+  font-size: clamp(2.5rem, 6.5vw, 6.2rem);
+  font-weight: 300;
+  color: #201C1A;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  text-align: center;
+}
+
+.landscape-svg {
+  width: 100%;
+  height: 280px;
+  display: block;
+  z-index: 2;
+  position: relative;
+}
+
+.footer-copyright-text {
+  width: 100%;
+  background-color: #C5E2F0;
+  border-top: 1.5px solid #201C1A;
+  padding: 20px;
+  text-align: center;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: rgba(32, 28, 26, 0.7);
+  z-index: 5;
+}
+
+@media (max-width: 1024px) {
+  .fl-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-newsletter-bar {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    padding: 8vh 6vw;
+  }
+  .fn-form {
+    flex-direction: column;
+    width: 100%;
+  }
+  .fn-input {
+    width: 100%;
+  }
+  .fn-submit-btn {
+    padding: 14px 0;
+  }
+  .fl-grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 6vh 6vw;
+  }
+  .flb-brand-logo {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .fl-grid {
+    grid-template-columns: 1fr;
+  }
 }
