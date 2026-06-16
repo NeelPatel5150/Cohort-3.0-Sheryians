@@ -1,0 +1,154 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+main{
+    height: 100%;
+    width: 100%;
+    background-color: whitesmoke;
+    padding: 20px;
+}
+
+nav{
+    height: 10%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1E90FF;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+button{
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: white;
+    color: #1E90FF;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.products{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    gap: 20px;
+    flex-wrap: wrap;
+
+}
+.product-card{
+    height: 50%;
+    width:20%;
+    border: 1px solid #1E90FF;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: white;
+    box-shadow: 3px 0px 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.img{
+    height: 60%;
+    width: 100%;
+}
+
+.img img{
+    
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.text{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.btns{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+
+#update-btn{
+    background-color: green;
+    color: white;
+}
+
+#delete-btn{
+    background-color: red;
+    color: white;
+}
+
+.form{
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.616);
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+form{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+   
+}
+
+input{
+    padding: 10px;
+    outline: none;
+    border: 1px solid #1E90FF;
+    border-radius: 5px;
+}
+
+.form .close-btn{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    color: red;
+    font-weight: bold;
+    font-size: 40px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+}
+
+.form .close-btn button{
+    background: transparent;
+    color: red;
+    font-size: 20px;
+    padding: 0;
+    border: 2px solid red;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
