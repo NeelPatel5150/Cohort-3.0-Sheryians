@@ -1,0 +1,262 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Inter, sans-serif;
+  }
+  
+  body {
+    min-height: 100vh;
+    background: linear-gradient(
+      135deg,
+      #0f172a,
+      #111827,
+      #1e293b
+    );
+    color: #fff;
+    padding: 40px 20px;
+  }
+  
+  .container {
+    max-width: 1100px;
+    margin: auto;
+  }
+  
+  h1 {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 30px;
+    background: linear-gradient(
+      to right,
+      #38bdf8,
+      #818cf8
+    );
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+  
+  h2 {
+    margin: 30px 0 20px;
+    color: #e2e8f0;
+  }
+  
+  .top-section {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+  }
+  
+  input {
+    flex: 1;
+    min-width: 250px;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    outline: none;
+    background: rgba(255,255,255,0.08);
+    color: white;
+    backdrop-filter: blur(10px);
+  }
+  
+  input::placeholder {
+    color: #94a3b8;
+  }
+  
+  button {
+    border: none;
+    cursor: pointer;
+    padding: 12px 18px;
+    border-radius: 12px;
+    font-weight: 600;
+    transition: 0.3s;
+  }
+  
+  #addBtn {
+    background: linear-gradient(
+      135deg,
+      #3b82f6,
+      #8b5cf6
+    );
+    color: white;
+  }
+  
+  #themeBtn {
+    background: #f59e0b;
+    color: black;
+  }
+  
+  #attributeBtn {
+    background: #06b6d4;
+    color: white;
+  }
+  
+  button:hover {
+    transform: translateY(-3px);
+  }
+  
+  .task-info {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 15px;
+    margin-bottom: 25px;
+  }
+  
+  .task-info p {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 16px;
+    text-align: center;
+    font-size: 1.1rem;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  
+  .task-info span {
+    display: block;
+    margin-top: 8px;
+    font-size: 1.7rem;
+    font-weight: bold;
+    color: #38bdf8;
+  }
+  
+  #taskContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .task-card {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(12px);
+    border-radius: 18px;
+    padding: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: 0.3s;
+  }
+  
+  .task-card:hover {
+    transform: translateY(-4px);
+  }
+  
+  .task-card p {
+    font-size: 1.1rem;
+  }
+  
+  .task-actions {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .complete-btn {
+    background: #22c55e;
+    color: white;
+  }
+  
+  .edit-btn {
+    background: #3b82f6;
+    color: white;
+  }
+  
+  .delete-btn {
+    background: #ef4444;
+    color: white;
+  }
+  
+  .completed {
+    text-decoration: line-through;
+    opacity: 0.6;
+  }
+  
+  hr {
+    border: none;
+    height: 1px;
+    background: rgba(255,255,255,0.1);
+    margin: 35px 0;
+  }
+  
+  .pipeline {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
+    gap: 15px;
+  }
+  
+  .pipeline div {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(12px);
+    border-radius: 16px;
+    padding: 25px;
+    text-align: center;
+    font-weight: 600;
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: .3s;
+  }
+  
+  .pipeline div:hover {
+    transform: scale(1.05);
+    background: rgba(56,189,248,.15);
+  }
+  
+  #grand {
+    background: rgba(239,68,68,.2);
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+  }
+  
+  #parent {
+    background: rgba(59,130,246,.2);
+    padding: 35px;
+    margin-top: 20px;
+    border-radius: 20px;
+  }
+  
+  #child {
+    background: linear-gradient(
+      135deg,
+      #22c55e,
+      #14b8a6
+    );
+    color: white;
+    margin-top: 15px;
+  }
+  
+  .dark {
+    background: linear-gradient(
+      135deg,
+      #020617,
+      #0f172a,
+      #020617
+    );
+  }
+  
+  .dark .task-card,
+  .dark .task-info p,
+  .dark .pipeline div {
+    background: rgba(15,23,42,.8);
+  }
+  
+  @media(max-width:768px) {
+  
+    .task-info {
+      grid-template-columns: 1fr;
+    }
+  
+    .task-card {
+      flex-direction: column;
+      gap: 15px;
+    }
+  
+    .task-actions {
+      width: 100%;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  
+    h1 {
+      font-size: 2.2rem;
+    }
+  }
