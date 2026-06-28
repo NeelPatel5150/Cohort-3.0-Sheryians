@@ -1,0 +1,425 @@
+:root {
+	--bg: #eef2f7;
+	--panel: #ffffff;
+	--text: #1f2937;
+	--muted: #6b7280;
+	--line: #dbe2ec;
+	--main: #3346cc;
+	--main-dark: #2939a7;
+	--income: #12803a;
+	--expense: #c31f1f;
+	--danger: #b91c1c;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	font-family: "Outfit", sans-serif;
+	background: linear-gradient(160deg, #edf1f9 0%, #f8fafc 45%, #edf3ff 100%);
+	color: var(--text);
+}
+
+.hidden {
+	display: none !important;
+}
+
+h1,
+h2,
+p {
+	margin: 0;
+}
+
+label {
+	display: block;
+	margin: 10px 0 6px;
+	font-size: 14px;
+}
+
+input,
+select,
+button {
+	font-family: inherit;
+	font-size: 14px;
+}
+
+input,
+select {
+	width: 100%;
+	border: 1px solid var(--line);
+	border-radius: 10px;
+	padding: 10px 11px;
+	background: #ffffff;
+	color: var(--text);
+}
+
+.btn {
+	border: none;
+	border-radius: 10px;
+	padding: 10px 14px;
+	background: var(--main);
+	color: #ffffff;
+	font-weight: 600;
+	cursor: pointer;
+}
+
+.btn:hover {
+	background: var(--main-dark);
+}
+
+.btn.ghost {
+	background: #e5e7eb;
+	color: #111827;
+}
+
+.btn.danger {
+	background: var(--danger);
+}
+
+.small-btn {
+	width: auto;
+	padding: 7px 11px;
+	font-size: 13px;
+}
+
+.auth-wrap {
+	min-height: 100vh;
+	display: grid;
+	place-items: center;
+	padding: 20px;
+}
+
+.auth-card {
+	width: 100%;
+	max-width: 420px;
+	background: var(--panel);
+	border: 1px solid var(--line);
+	border-radius: 16px;
+	padding: 18px;
+	box-shadow: 0 14px 28px rgba(51, 70, 204, 0.09);
+}
+
+.auth-card h1 {
+	font-size: 30px;
+}
+
+.auth-sub {
+	color: var(--muted);
+	margin: 3px 0 14px;
+}
+
+.auth-tabs {
+	display: flex;
+	gap: 8px;
+	margin-bottom: 14px;
+}
+
+.topbar {
+	position: sticky;
+	top: 0;
+	z-index: 5;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 10px;
+	padding: 14px 22px;
+	background: linear-gradient(90deg, #ffffff, #f1f4fd);
+	border-bottom: 1px solid var(--line);
+}
+
+.brand-box h1 {
+	font-size: 25px;
+}
+
+.brand-box p {
+	font-size: 13px;
+	margin-top: 3px;
+	color: var(--muted);
+}
+
+.top-nav {
+	display: flex;
+	gap: 7px;
+}
+
+.nav-btn {
+	border: 1px solid var(--line);
+	background: #ffffff;
+	border-radius: 9px;
+	padding: 8px 11px;
+	cursor: pointer;
+	font-weight: 500;
+	color: var(--text);
+}
+
+.nav-btn.active,
+.chip.active,
+.small-btn.active {
+	background: var(--main);
+	border-color: var(--main);
+	color: #ffffff;
+}
+
+.top-actions {
+	display: flex;
+	gap: 8px;
+}
+
+main {
+	padding: 16px;
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+.page {
+	display: block;
+}
+
+.summary-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 10px;
+	margin-bottom: 12px;
+}
+
+.mini {
+	border: 1px solid var(--line);
+	border-radius: 13px;
+	padding: 14px;
+	background: var(--panel);
+}
+
+.mini span {
+	font-size: 13px;
+	color: var(--muted);
+}
+
+.mini strong {
+	display: block;
+	margin-top: 8px;
+	font-size: 23px;
+}
+
+.card-item:first-child strong {
+	color: var(--main);
+}
+
+.card-item:nth-child(2) strong {
+	color: var(--income);
+}
+
+.card-item:nth-child(3) strong {
+	color: var(--expense);
+}
+
+.card {
+	background: var(--panel);
+	border: 1px solid var(--line);
+	border-radius: 14px;
+	padding: 14px;
+	box-shadow: 0 6px 14px rgba(17, 24, 39, 0.04);
+	margin-bottom: 12px;
+}
+
+.filters-top {
+	display: flex;
+	gap: 8px;
+	margin-bottom: 10px;
+}
+
+.chip {
+	border: 1px solid var(--line);
+	background: #ffffff;
+	color: var(--text);
+	padding: 7px 10px;
+	border-radius: 999px;
+	cursor: pointer;
+}
+
+.filters {
+	display: grid;
+	grid-template-columns: 1fr 180px 140px;
+	gap: 8px;
+	margin-bottom: 10px;
+}
+
+.table-wrap {
+	overflow-x: auto;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+	min-width: 700px;
+}
+
+th,
+td {
+	padding: 10px 8px;
+	border-bottom: 1px solid var(--line);
+	text-align: left;
+	font-size: 14px;
+}
+
+th {
+	color: var(--muted);
+	font-weight: 600;
+}
+
+tr:nth-child(even) {
+	background: rgba(17, 24, 39, 0.02);
+}
+
+.amount.income {
+	color: var(--income);
+	font-weight: 600;
+}
+
+.amount.expense {
+	color: var(--expense);
+	font-weight: 600;
+}
+
+.small {
+	border: 1px solid var(--line);
+	background: #ffffff;
+	padding: 6px 8px;
+	border-radius: 8px;
+	cursor: pointer;
+	margin-right: 6px;
+}
+
+.small.del {
+	color: var(--danger);
+}
+
+.empty {
+	margin-top: 10px;
+	color: var(--muted);
+}
+
+.settings-card {
+	max-width: 520px;
+}
+
+.switch-line {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin-top: 12px;
+}
+
+.switch-line input {
+	width: auto;
+}
+
+.settings-btns {
+	display: flex;
+	gap: 8px;
+	margin-top: 12px;
+}
+
+.modal {
+	position: fixed;
+	inset: 0;
+	background: rgba(15, 23, 42, 0.55);
+	display: grid;
+	place-items: center;
+	padding: 16px;
+	z-index: 10;
+}
+
+.modal-inner {
+	width: 100%;
+	max-width: 520px;
+	background: var(--panel);
+	border: 1px solid var(--line);
+	border-radius: 16px;
+	padding: 14px;
+}
+
+.modal-head {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 10px;
+}
+
+.close-btn {
+	border: 1px solid var(--line);
+	background: #ffffff;
+	border-radius: 7px;
+	padding: 4px 8px;
+	cursor: pointer;
+}
+
+.form-buttons {
+	display: flex;
+	gap: 8px;
+	margin-top: 14px;
+}
+
+body.dark {
+	--bg: #0f172a;
+	--panel: #162033;
+	--text: #e5e7eb;
+	--muted: #9ca3af;
+	--line: #314156;
+	--main: #4564ff;
+	--main-dark: #3653e1;
+	background: linear-gradient(160deg, #0f172a, #101a30 50%, #0f1f3d);
+}
+
+body.dark .topbar {
+	background: linear-gradient(90deg, #162033, #111a2d);
+}
+
+body.dark input,
+body.dark select,
+body.dark .nav-btn,
+body.dark .chip,
+body.dark .small,
+body.dark .close-btn {
+	background: #0f172a;
+	color: #e5e7eb;
+}
+
+body.dark tr:nth-child(even) {
+	background: rgba(241, 245, 249, 0.03);
+}
+
+@media (max-width: 980px) {
+	.summary-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.filters {
+		grid-template-columns: 1fr;
+	}
+
+	.topbar {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+}
+
+@media (max-width: 560px) {
+	.summary-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.top-actions,
+	.settings-btns,
+	.form-buttons {
+		width: 100%;
+		flex-direction: column;
+	}
+
+	.top-actions .btn,
+	.settings-btns .btn,
+	.form-buttons .btn {
+		width: 100%;
+	}
+}
