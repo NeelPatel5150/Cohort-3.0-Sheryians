@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
+    <script>
+      (function () {
+        try {
+          const savedTheme = localStorage.getItem(
+            "productivity-dashboard-theme",
+          );
+          const theme = savedTheme || "dark";
+          document.documentElement.dataset.theme =
+            theme === "light" ? "light" : "dark";
+          document.documentElement.style.colorScheme =
+            theme === "light" ? "light" : "dark";
+        } catch (error) {
+          document.documentElement.dataset.theme = "dark";
+          document.documentElement.style.colorScheme = "dark";
+        }
+      })();
+    </script>
+    <title>Productivity Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Single-page productivity workspace</p>
+          <h1>Productivity Dashboard</h1>
+          <p class="intro">
+            A focused home for tasks, planning, motivation, time tracking,
+            weather, and daily goals.
+          </p>
+        </div>
+        <div class="topbar-actions">
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            type="button"
+            aria-pressed="false"
+            aria-label="Toggle theme"
+          >
+            <span class="theme-toggle__track">
+              <span class="theme-toggle__thumb"></span>
+            </span>
+            <span class="theme-toggle__label">Theme</span>
+          </button>
+        </div>
+      </header>
+
+      <main class="dashboard" id="dashboardApp">
+        <section class="dashboard-home" id="dashboardHome">
+          <section class="hero-panel">
+            <div class="hero-copy">
+              <p class="section-kicker">Today at a glance</p>
+              <h2>
+                Plan the day, stay focused, and keep everything in one place.
+              </h2>
+              <p>
+                The dashboard opens feature cards for the core tools, while the
+                date, time, weather, and theme stay visible at all times.
+              </p>
+            </div>
+            <div class="status-grid">
+              <article class="status-card">
+                <p class="status-card__label">Date</p>
+                <p class="status-card__value" id="dateDisplay">
+                  Loading date...
+                </p>
+              </article>
+              <article class="status-card">
+                <p class="status-card__label">Time</p>
+                <p class="status-card__value" id="timeDisplay">
+                  Loading time...
+                </p>
+              </article>
+              <article class="status-card weather-card" id="weatherCard">
+                <p class="status-card__label">Weather</p>
+                <p
+                  class="status-card__icon"
+                  id="weatherIcon"
+                  aria-hidden="true"
+                >
+                  ☁
+                </p>
+                <p class="status-card__value" id="weatherLocation">
+                  Loading weather...
+                </p>
+                <p class="status-card__subvalue" id="weatherSummary">
+                  Checking conditions...
+                </p>
+                <p class="status-card__meta" id="weatherDetails">
+                  Humidity and wind will appear here.
+                </p>
+              </article>
+            </div>
+          </section>
+
+          <section class="feature-grid" aria-label="Dashboard features">
+            <button
+              class="feature-card"
+              data-feature-target="todoView"
+              type="button"
+            >
+              <span class="feature-card__icon">✓</span>
+              <span class="feature-card__title">Todo List</span>
+              <span class="feature-card__text"
+                >Capture tasks, mark important items, and track
+                completion.</span
+              >
+            </button>
+            <button
+              class="feature-card"
+              data-feature-target="plannerView"
+              type="button"
+            >
+              <span class="feature-card__icon">▣</span>
+              <span class="feature-card__title">Daily Planner</span>
+              <span class="feature-card__text"
+                >Write a note for each hour and keep the day organized.</span
+              >
+            </button>
+            <button
+              class="feature-card"
+              data-feature-target="goalsView"
+              type="button"
+            >
+              <span class="feature-card__icon">◎</span>
+              <span class="feature-card__title">Daily Goals</span>
+              <span class="feature-card__text"
+                >Set small goals and watch daily progress update live.</span
+              >
+            </button>
+            <button
+              class="feature-card"
+              data-feature-target="pomodoroView"
+              type="button"
+            >
+              <span class="feature-card__icon">⏱</span>
+              <span class="feature-card__title">Pomodoro Timer</span>
+              <span class="feature-card__text"
+                >Run focused sessions with a simple start, pause, and reset
+                flow.</span
+              >
+            </button>
+            <button
+              class="feature-card"
+              data-feature-target="quoteView"
+              type="button"
+            >
+              <span class="feature-card__icon">✦</span>
+              <span class="feature-card__title">Motivation Quote</span>
+              <span class="feature-card__text"
+                >Fetch a fresh quote whenever you need a boost.</span
+              >
+            </button>
+          </section>
+        </section>
+
+        <section class="feature-stack" aria-label="Full feature views">
+          <section class="feature-view" id="todoView" hidden>
+            <div class="feature-view__header">
+              <div>
+                <p class="section-kicker">Todo List</p>
+                <h2>Manage your tasks</h2>
+              </div>
+              <button class="back-button" type="button" data-back-button>
+                Back to dashboard
+              </button>
+            </div>
+            <form class="input-row" id="todoForm">
+              <input
+                id="todoInput"
+                type="text"
+                placeholder="Add a task..."
+                autocomplete="off"
+              />
+              <button type="submit">Add Task</button>
+            </form>
+            <ul class="task-list" id="todoList" aria-live="polite"></ul>
+          </section>
+
+          <section class="feature-view" id="plannerView" hidden>
+            <div class="feature-view__header">
+              <div>
+                <p class="section-kicker">Daily Planner</p>
+                <h2>Map the day hour by hour</h2>
+              </div>
+              <button class="back-button" type="button" data-back-button>
+                Back to dashboard
+              </button>
+            </div>
+            <div class="planner-grid" id="plannerGrid"></div>
+          </section>
+
+          <section class="feature-view" id="goalsView" hidden>
+            <div class="feature-view__header">
+              <div>
+                <p class="section-kicker">Daily Goals</p>
+                <h2>Track small wins</h2>
+              </div>
+              <button class="back-button" type="button" data-back-button>
+                Back to dashboard
+              </button>
+            </div>
+            <div class="goals-summary" id="goalsProgress">0 of 0 completed</div>
+            <form class="input-row" id="goalForm">
+              <input
+                id="goalInput"
+                type="text"
+                placeholder="Add a daily goal..."
+                autocomplete="off"
+              />
+              <button type="submit">Add Goal</button>
+            </form>
+            <ul class="task-list" id="goalList" aria-live="polite"></ul>
+          </section>
+
+          <section class="feature-view" id="pomodoroView" hidden>
+            <div class="feature-view__header">
+              <div>
+                <p class="section-kicker">Pomodoro Timer</p>
+                <h2>Work in focused sessions</h2>
+              </div>
+              <button class="back-button" type="button" data-back-button>
+                Back to dashboard
+              </button>
+            </div>
+            <article class="timer-card">
+              <p class="timer-label" id="timerLabel">Work Session</p>
+              <p class="timer-status" id="timerStatus">
+                25 minutes of focus, then a 5 minute break.
+              </p>
+              <div class="timer-display" id="timerDisplay">25:00</div>
+              <div class="timer-actions">
+                <button type="button" id="timerStart">Start</button>
+                <button type="button" id="timerPause">Pause</button>
+                <button type="button" id="timerReset">Reset</button>
+              </div>
+            </article>
+          </section>
+
+          <section class="feature-view" id="quoteView" hidden>
+            <div class="feature-view__header">
+              <div>
+                <p class="section-kicker">Motivation Quote</p>
+                <h2>Get a fresh quote on demand</h2>
+              </div>
+              <button class="back-button" type="button" data-back-button>
+                Back to dashboard
+              </button>
+            </div>
+            <article class="quote-card">
+              <p class="quote-text" id="quoteText">
+                Press the button to load a quote.
+              </p>
+              <p class="quote-author" id="quoteAuthor">-</p>
+              <div class="quote-actions">
+                <button type="button" id="quoteButton">New Quote</button>
+              </div>
+            </article>
+          </section>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
