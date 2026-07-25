@@ -1,0 +1,143 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Syne", ui-sans-serif, system-ui, sans-serif;
+  --color-accent: #f97316;
+  --color-accent-hover: #ea580c;
+  --color-accent-soft: #fb923c;
+}
+
+:root {
+  --bg: #f4f4f5;
+  --bg-elevated: #ffffff;
+  --bg-muted: #e4e4e7;
+  --text: #18181b;
+  --text-muted: #71717a;
+  --border: #d4d4d8;
+  --card: #ffffff;
+  --input: #f4f4f5;
+  --overlay: rgba(0, 0, 0, 0.45);
+}
+
+.dark {
+  --bg: #0a0a0a;
+  --bg-elevated: #141414;
+  --bg-muted: #1c1c1c;
+  --text: #fafafa;
+  --text-muted: #a1a1aa;
+  --border: #2a2a2a;
+  --card: #161616;
+  --input: #111111;
+  --overlay: rgba(0, 0, 0, 0.65);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+}
+
+p,
+span,
+label,
+input,
+textarea,
+select,
+button,
+a,
+li {
+  font-family: inherit;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 999px;
+}
+
+.grid-bg {
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--border) 50%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--border) 50%, transparent) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.35s ease-out both;
+}
+
+@keyframes slide-in-right {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in {
+  animation: slide-in-right 0.25s ease-out both;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.auth-gradient {
+  background:
+    radial-gradient(ellipse 80% 60% at 15% 20%, rgba(249, 115, 22, 0.28), transparent 55%),
+    radial-gradient(ellipse 70% 50% at 85% 75%, rgba(234, 88, 12, 0.22), transparent 50%),
+    radial-gradient(ellipse 50% 40% at 50% 50%, rgba(251, 146, 60, 0.1), transparent 60%),
+    var(--bg);
+}
+
+.dark .auth-gradient {
+  background:
+    radial-gradient(ellipse 80% 60% at 15% 20%, rgba(249, 115, 22, 0.35), transparent 55%),
+    radial-gradient(ellipse 70% 50% at 90% 80%, rgba(234, 88, 12, 0.28), transparent 50%),
+    radial-gradient(ellipse 45% 35% at 55% 40%, rgba(251, 146, 60, 0.12), transparent 60%),
+    var(--bg);
+}
+
