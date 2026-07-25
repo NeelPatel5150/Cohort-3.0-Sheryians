@@ -1,0 +1,73 @@
+// Hardcoded dummy products — no backend needed
+export const products = [
+  {
+    id: 1,
+    name: 'Wireless Headphones',
+    price: 79.99,
+    category: 'Electronics',
+    image: 'https://picsum.photos/seed/headphones/400/300',
+  },
+  {
+    id: 2,
+    name: 'Running Sneakers',
+    price: 119.0,
+    category: 'Footwear',
+    image: 'https://picsum.photos/seed/sneakers/400/300',
+  },
+  {
+    id: 3,
+    name: 'Classic Denim Jacket',
+    price: 89.5,
+    category: 'Clothing',
+    image: 'https://picsum.photos/seed/denim/400/300',
+  },
+  {
+    id: 4,
+    name: 'Smart Watch',
+    price: 199.99,
+    category: 'Electronics',
+    image: 'https://picsum.photos/seed/smartwatch/400/300',
+  },
+  {
+    id: 5,
+    name: 'Leather Backpack',
+    price: 64.0,
+    category: 'Accessories',
+    image: 'https://picsum.photos/seed/backpack/400/300',
+  },
+  {
+    id: 6,
+    name: 'Ceramic Coffee Mug',
+    price: 18.5,
+    category: 'Home',
+    image: 'https://picsum.photos/seed/mug/400/300',
+  },
+  {
+    id: 7,
+    name: 'Bluetooth Speaker',
+    price: 54.99,
+    category: 'Electronics',
+    image: 'https://picsum.photos/seed/speaker/400/300',
+  },
+  {
+    id: 8,
+    name: 'Sunglasses',
+    price: 39.0,
+    category: 'Accessories',
+    image: 'https://picsum.photos/seed/sunglasses/400/300',
+  },
+  {
+    id: 9,
+    name: 'Cotton T-Shirt',
+    price: 24.99,
+    category: 'Clothing',
+    image: 'https://picsum.photos/seed/tshirt/400/300',
+  },
+  {
+    id: 10,
+    name: 'Desk Lamp',
+    price: 45.0,
+    category: 'Home',
+    image: 'https://picsum.photos/seed/desklamp/400/300',
+  },
+]
