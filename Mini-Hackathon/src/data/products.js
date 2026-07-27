@@ -1,4 +1,5 @@
-// Hardcoded dummy products — no backend needed
+// Local fallback products — used if Fake Store API is unavailable
+// Primary product source is RTK Query (src/features/products/productsApi.js)
 export const products = [
   {
     id: 1,

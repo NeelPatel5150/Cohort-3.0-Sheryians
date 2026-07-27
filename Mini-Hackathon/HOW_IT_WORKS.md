@@ -6,18 +6,26 @@ Ye document explain karta hai ki ye Shopping Cart app **kaise kaam karti hai**, 
 
 ## 1. Project ka Overview (Simple Language Me)
 
-Ye ek **frontend-only e-commerce demo** hai.
+Ye ek **frontend e-commerce demo** hai (khud ka backend nahi).
 
-- Backend nahi hai
-- Database nahi hai
-- Products ek local JavaScript array se aate hain (`src/data/products.js`)
-- Cart ka data **Redux store** me rehta hai
+- Products **RTK Query** se Fake Store API (`fakestoreapi.com`) se fetch hote hain
+- Agar API fail ho jaye toh local fallback (`src/data/products.js`) use hota hai
+- Cart ka data **Redux Toolkit slice** me rehta hai (Add / Update / Delete)
 - UI React components se bani hai
 - Styling Tailwind CSS se ki gayi hai
 
+### Hackathon CRUD mapping
+
+| Requirement | Implementation |
+|-------------|----------------|
+| **Display Data** | RTK Query `useGetProductsQuery` → product grid |
+| **Add Data** | `addToCart` |
+| **Update Data** | `increaseQuantity` / `decreaseQuantity` |
+| **Delete Data** | `removeFromCart` / `clearCart` |
+
 ### User kya kar sakta hai?
 
-1. Products dekh sakta hai (grid me)
+1. Products dekh sakta hai (API se grid me) + Refresh dabake refetch
 2. **Add to Cart** dabake product cart me daal sakta hai
 3. Navbar ke cart icon pe click karke cart sidebar open/close kar sakta hai
 4. Quantity `+` / `−` se badha / ghatta sakta hai
@@ -34,6 +42,7 @@ Ye ek **frontend-only e-commerce demo** hai.
 | **Vite** | Fast development server + build tool |
 | **JavaScript** | TypeScript nahi — simple JS |
 | **Redux Toolkit** | Cart state manage karna (global state) |
+| **RTK Query** | Products API se fetch + cache + loading/error |
 | **react-redux** | React components ko Redux se connect karna |
 | **Tailwind CSS** | Fast, utility-based styling |
 
@@ -53,18 +62,20 @@ Isliye Redux use kiya: **ek central store**, jahan se koi bhi component data pad
 ```text
 src/
   app/
-    store.js              ← Redux store setup
+    store.js              ← configureStore + RTK Query middleware
   features/
     cart/
-      cartSlice.js        ← Cart logic (actions + reducers)
+      cartSlice.js        ← Cart CRUD (add / update / delete)
+    products/
+      productsApi.js      ← RTK Query (Display products from API)
   components/
     Navbar.jsx            ← Logo + cart badge
     ProductCard.jsx       ← Ek product ka card
-    ProductList.jsx       ← Saare products ka grid
+    ProductList.jsx       ← API products grid + loading/error
     Cart.jsx              ← Cart sidebar
     CartItem.jsx          ← Cart ke andar ek line item
   data/
-    products.js           ← Dummy products array
+    products.js           ← Fallback products (API fail hone pe)
   App.jsx                 ← Main layout + cart open/close state
   main.jsx                ← App start + Provider wrap
   index.css               ← Tailwind import + base styles
@@ -76,8 +87,9 @@ Redux Toolkit ka recommended pattern **feature-based** hota hai:
 
 - `app/` → store configuration
 - `features/cart/` → cart se related saara logic
+- `features/products/` → RTK Query API slice
 - `components/` → UI pieces
-- `data/` → static data
+- `data/` → static fallback data
 
 Isse code samajhna aur explain karna easy hota hai.
 
@@ -377,21 +389,46 @@ Isliye code readable rehta hai — camera explanation ke liye perfect.
 
 ---
 
-## 8. Dummy Products (`data/products.js`)
+## 8. Products — RTK Query + Fallback
 
-File: `src/data/products.js`
+### Primary: `features/products/productsApi.js` (RTK Query)
 
-Yahan ~10 products hardcoded hain:
+```js
+export const productsApi = createApi({
+  reducerPath: 'productsApi',
+  baseQuery: fetchBaseQuery({ baseUrl: 'https://fakestoreapi.com' }),
+  endpoints: (builder) => ({
+    getProducts: builder.query({
+      query: () => '/products',
+      transformResponse: (response) =>
+        response.map((product) => ({
+          id: product.id,
+          name: product.title, // API title → hamara name
+          price: product.price,
+          category: product.category,
+          image: product.image,
+        })),
+    }),
+  }),
+})
+```
 
-- `id`
-- `name`
-- `price`
-- `category`
-- `image` (picsum.photos se)
+`ProductList` mein:
 
-Backend nahi hai, isliye ye local array hi "database" jaisa kaam karti hai.
+```js
+const { data, isLoading, isError, refetch } = useGetProductsQuery()
+```
 
-`ProductList` isi array ko map karke cards dikhata hai.
+Isse milta hai:
+
+- Automatic fetch on mount
+- `isLoading` / `isError` / `isFetching`
+- Caching (dobara mount pe unnecessary refetch kam)
+- `refetch()` se Refresh Products button
+
+### Fallback: `data/products.js`
+
+Agar API down ho, local ~10 products dikhte hain taaki cart demo break na ho.
 
 ---
 
@@ -452,7 +489,9 @@ Cart icon click → `onToggleCart()` → App me sidebar open/close.
 
 ### 9.3 `ProductList.jsx`
 
-- `products` array import karta hai
+- `useGetProductsQuery()` se products fetch karta hai (RTK Query)
+- Loading skeletons + error fallback dikhata hai
+- Refresh Products button se `refetch()`
 - Responsive grid banata hai
 - Har product ke liye `ProductCard` render karta hai
 
@@ -675,11 +714,12 @@ Agar deeper poochhe:
 | `main.jsx` | Provider wrap |
 | `store.js` | configureStore + cart reducer |
 | `cartSlice.js` | saara cart business logic |
-| `products.js` | dummy catalog |
+| `productsApi.js` | RTK Query — Display products from API |
+| `products.js` | fallback catalog (API fail pe) |
 | `App.jsx` | layout + cart open state |
 | `Navbar.jsx` | badge count |
 | `ProductCard.jsx` | dispatch addToCart |
-| `ProductList.jsx` | grid of cards |
+| `ProductList.jsx` | RTK Query grid + loading/error |
 | `Cart.jsx` | sidebar + total + clear |
 | `CartItem.jsx` | + / − / remove / subtotal |
 
@@ -706,18 +746,16 @@ Is project me intentionally nahi hai:
 
 - Routing (React Router)
 - Authentication / login
-- Backend / API / database
+- Khud ka backend / database (hum public Fake Store API use karte hain)
 - Payment gateway
 - Persistence (localStorage)
 
-Focus sirf Redux Toolkit fundamentals pe hai:
+Focus Redux Toolkit pe hai — fundamentals + bonus RTK Query:
 
-- Store
-- Slice
-- Actions
-- Reducers
-- `useSelector`
-- `useDispatch`
+- Store / Slice / Actions / Reducers
+- `useSelector` / `useDispatch`
+- Immer + DevTools
+- **RTK Query** (`createApi`, `useGetProductsQuery`)
 
 ---
 

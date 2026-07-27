@@ -1,6 +1,8 @@
-# ShopCart — Shopping Cart Demo
+# ShopCart — Mini E-commerce (Hackathon Phase 3)
 
-React + Vite + Redux Toolkit + Tailwind CSS shopping cart demo (no backend).
+React + Vite + Redux Toolkit + Tailwind CSS shopping cart demo.
+
+Products are fetched with **RTK Query** from [Fake Store API](https://fakestoreapi.com). Local products are used only as a fallback if the API fails.
 
 ## Run locally
 
@@ -11,12 +13,44 @@ npm run dev
 
 Open the URL shown in the terminal (usually `http://localhost:5173`).
 
-## What's included
+## Hackathon CRUD mapping
 
-- Product grid with 10 dummy products
-- Add / remove / increase / decrease cart items
-- Cart sidebar with total price and clear cart
-- Navbar badge showing total item count
+| Requirement | How this app does it |
+|-------------|----------------------|
+| **Display Data** | Product list via RTK Query (`useGetProductsQuery`) |
+| **Add Data** | `addToCart` — new item in cart |
+| **Update Data** | `increaseQuantity` / `decreaseQuantity` |
+| **Delete Data** | `removeFromCart` + `clearCart` |
+| **Redux Toolkit** | `configureStore`, `createSlice`, Provider, hooks, Immer, DevTools |
+
+## Flow
+
+```text
+Product Listing (RTK Query)
+      ↓
+Add to Cart
+      ↓
+Redux Store (cart slice)
+      ↓
+Cart Sidebar
+      ↓
+Increase / Decrease Quantity
+      ↓
+Remove Product
+      ↓
+Calculate Total
+```
+
+## Redux concepts used
+
+- `configureStore()`
+- `createSlice()`
+- `Provider`
+- `useSelector()` / `useDispatch()`
+- Actions, Reducers, Payload
+- Immer (built into RTK slices)
+- Redux DevTools (via `configureStore`)
+- **Bonus:** RTK Query (`createApi`, `fetchBaseQuery`, `useGetProductsQuery`)
 
 ## Learn more
 

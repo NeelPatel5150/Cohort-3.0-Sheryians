@@ -759,16 +759,46 @@ Agar user dobara Add dabaye → same item ki quantity `2` ho jayegi (duplicate r
 
 ### Project summary
 
-Maine ek **Shopping Cart e-commerce demo** banaya:
+Maine ek **Shopping Cart / Mini E-commerce** banaya (hackathon Phase 3):
 
 - React + Vite (JavaScript)
 - Redux Toolkit + react-redux
 - Tailwind CSS
-- No backend — 10 dummy products local array se
+- **RTK Query** se Fake Store API products fetch
+- Local products sirf **fallback** (API fail hone pe)
+
+### Hackathon requirements mapping
+
+| Requirement | Feature |
+|-------------|---------|
+| **Display Data** | Product listing via `useGetProductsQuery` |
+| **Add Data** | `addToCart` |
+| **Update Data** | `increaseQuantity` / `decreaseQuantity` |
+| **Delete Data** | `removeFromCart` / `clearCart` |
+| **RTK correctly** | store + slice + Provider + hooks + Immer + DevTools |
+
+### Flow
+
+```text
+Product Listing (RTK Query)
+      ↓
+Add to Cart
+      ↓
+Redux Store (cart slice)
+      ↓
+Cart Sidebar
+      ↓
+Increase / Decrease Quantity
+      ↓
+Remove Product
+      ↓
+Calculate Total
+```
 
 ### Features implemented
 
-- Product grid (responsive)
+- Product grid (responsive) from API + loading skeletons
+- Refresh Products (RTK Query `refetch`)
 - Add to Cart
 - Navbar cart badge (total quantity)
 - Cart sidebar open/close
@@ -777,34 +807,38 @@ Maine ek **Shopping Cart e-commerce demo** banaya:
 - Clear cart
 - Empty cart friendly UI
 - Total price calculation
+- API failure fallback to local products
 
 ### Important files
 
 #### `src/app/store.js`
-Store configure — sirf `cart` reducer.
+- `cart` reducer (`createSlice`)
+- `productsApi` reducer + middleware (RTK Query)
 
 #### `src/features/cart/cartSlice.js`
-Poora cart business logic:
+Cart CRUD:
 
-- `addToCart`
-- `removeFromCart`
-- `increaseQuantity`
-- `decreaseQuantity`
-- `clearCart`
+- `addToCart` → Add
+- `increaseQuantity` / `decreaseQuantity` → Update
+- `removeFromCart` / `clearCart` → Delete
 
-Har reducer ke upar simple English comment bhi likha hai — camera explanation ke liye.
+#### `src/features/products/productsApi.js`
+RTK Query bonus:
+
+- `createApi` + `fetchBaseQuery`
+- `getProducts` query
+- `transformResponse` (API `title` → app `name`)
+- `useGetProductsQuery` hook
 
 #### `src/data/products.js`
-Hardcoded products:
-
-- id, name, price, category, image (picsum)
+Fallback catalog agar API unreachable ho.
 
 #### UI components
 
 | Component | Role |
 |-----------|------|
 | `Navbar` | logo + cart icon + badge count |
-| `ProductList` | products grid |
+| `ProductList` | RTK Query products + loading/error/refetch |
 | `ProductCard` | image/name/price + Add to Cart |
 | `Cart` | sidebar + empty state + total + Clear Cart |
 | `CartItem` | +/- / remove / line subtotal |
@@ -813,10 +847,9 @@ Hardcoded products:
 
 ### Local state vs Redux state (project decision)
 
-- **Redux:** cart items (shared business data)
+- **Redux slice:** cart items (shared business data)
+- **RTK Query cache:** products from API
 - **Local `useState`:** cart sidebar open/close (UI-only)
-
-Yeh best practice follow kiya.
 
 ### Selectors used
 
@@ -965,7 +998,7 @@ const { data, isLoading, error } = useGetProductsQuery()
 Caching, refetching, invalidation built-in.  
 Bade projects mein time bachata hai.
 
-> Note: ShopCart mein backend nahi tha, isliye RTK Query use nahi kiya — lekin concept explore kiya.
+> ShopCart mein ye **implement** hai: `productsApi.js` Fake Store API se products lata hai, aur `ProductList` `useGetProductsQuery()` use karta hai.
 
 ---
 
@@ -1054,7 +1087,7 @@ Redux Toolkit ne mujhe ye clear kar diya ki state management sirf "data store ka
 
 1. Redux DevTools se har cart action deeply observe karna
 2. Ek chhota async example (`createAsyncThunk`) try karna
-3. Future project mein RTK Query se API + caching practice karna
+3. RTK Query caching / invalidation aur deeply observe karna (DevTools mein)
 4. Agar list heavy ho jaye to `createEntityAdapter` try karna
 
 ---
