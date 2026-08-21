@@ -48,3 +48,7 @@ app.delete("/delete/:id", (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
+
+
+
+mongodb+srv://neelp2106_db_user:mivB5pQPDdqyK8Qy@cluster0.f2hn5ww.mongodb.net/
